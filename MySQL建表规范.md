@@ -58,4 +58,6 @@ http://www.databaseskill.com/4069474/
 
 http://www.infoq.com/cn/presentations/wsz-mysql-development/
 
+http://blog.csdn.net/zcczcw/article/details/7362473
+
 <<美丽说数据库规范v0.1>>
