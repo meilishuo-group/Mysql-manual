@@ -49,6 +49,8 @@ SELECT INET_ATON('209.207.224.40');
 SELECT INET_NTOA(3520061480);
 209.207.224.40
 ```
+####为什么MySQL存储float类型有误差
+涉及到进制转换中浮点数的问题,参考：http://blog.csdn.net/zcczcw/article/details/7362473
 ##参考文档
 http://dev.mysql.com/doc/refman/5.5/en/data-types.html
 
