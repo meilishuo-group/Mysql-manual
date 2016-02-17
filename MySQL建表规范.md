@@ -24,9 +24,8 @@
 1. 使用 UNSIGNED 存储非负数值、存储范围可以提升一倍
 2. 整型定义中不添加长度,比如使用 INT,而不是 INT(4)。INT(SIZE)中的SIZE是指显示宽度，不影响存储范围
 3. 小的整型定义、比如状态类、统一使用TINYINT表示，不建议使用ENUM、SET 类型
-4. 使用 INT UNSIGNED 存储 IP。IP转数字函数inet_aton()、数字转IP函数inet_ntoa()
-5. 存储精确浮点数必须使用 DECIMAL 替代 FLOAT 和 DOUBLE
-6. FLOAT/DOUBLE/DECIMAL(Length, Decimals)。Length表示总长度、Decimals表示精度(小数点后Decimals位)
+4. 存储精确浮点数必须使用 DECIMAL 替代 FLOAT 和 DOUBLE
+5. FLOAT/DOUBLE/DECIMAL(Length, Decimals)。Length表示总长度、Decimals表示精度(小数点后Decimals位)
 
 ###字符串类型规范
 1. VARCHAR(N)中的N表示字符数(不是字节数、比如VARCHAR(N)能存储N个汉字)、满足需求的情况下N越小越好、最大长度65535个字节
@@ -40,16 +39,8 @@
 
 
 ##【FAQ】
-#####如何使用 INT UNSIGNED 存储 ip?
-使用 INT UNSIGNED 而不是 char(15)来存储 ipv4 地址,通过 MySQL 函数 inet_ntoa 和 inet_aton 来进行
-转化。Ipv6 地址目前没有转化函数,需要使用 DECIMAL 或者两个 bigINT 来存储。例如: 
-```
-SELECT INET_ATON('209.207.224.40');
-3520061480
-SELECT INET_NTOA(3520061480);
-209.207.224.40
-```
 #####为什么MySQL存储float类型有误差
+在MySQL中，float，double，decimal都有误差，其中decimal可以认为没有。
 涉及到进制转换中浮点数的问题,参考：http://blog.csdn.net/zcczcw/article/details/7362473
 ##参考文档
 http://dev.mysql.com/doc/refman/5.5/en/data-types.html
