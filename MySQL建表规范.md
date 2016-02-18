@@ -19,13 +19,14 @@
 1. 字段定义为NOT NULL、因为NULL在MySQL中得特殊处理、很难优化
 2. 将大字段拆分值其他表中
 3. 不在数据库中使用字段存储图片、媒体、文件等、只存储路径
+4. 表要有主键，如果没有，innoDB也会默认加上
 
 ###数值类型规范
 1. 使用 UNSIGNED 存储非负数值、存储范围可以提升一倍
 2. 整型定义中不添加长度,比如使用 INT,而不是 INT(4)。INT(SIZE)中的SIZE是指显示宽度，不影响存储范围
 3. 小的整型定义、比如状态类、统一使用TINYINT表示，不建议使用ENUM、SET 类型
 4. 存储精确浮点数必须使用 DECIMAL 替代 FLOAT 和 DOUBLE
-5. FLOAT/DOUBLE/DECIMAL(Length, Decimals)。Length表示总长度、Decimals表示精度(小数点后Decimals位)
+5. FLOAT/DOUBLE/DECIMAL(Length, Decimals)。Length表示总长度、小数点后Decimals位
 
 ###字符串类型规范
 1. VARCHAR(N)中的N表示字符数(不是字节数、比如VARCHAR(N)能存储N个汉字)、满足需求的情况下N越小越好、最大长度65535个字节
