@@ -41,7 +41,7 @@
 
 ##【FAQ】
 #####为什么MySQL存储float类型有误差
-在MySQL中，float，double，decimal都有误差，其中decimal可以认为没有。
+在MySQL中，float，double都有误差，其中decimal没有。
 涉及到进制转换中浮点数的问题,参考：http://blog.csdn.net/zcczcw/article/details/7362473
 ##参考文档
 http://dev.mysql.com/doc/refman/5.5/en/data-types.html
